@@ -20,14 +20,18 @@ const repo = "https://github.com/tgolding55/create-node-api.git";
 const cloneCommand = `git clone ${repo} ${repoName}`;
 const installCommand = `cd ${repoName} && npm install`;
 
-console.log(`Cloning node api into ${repoName}`);
+const runCommands = async () => {
+  console.log(`Cloning node api into ${repoName}`);
 
-const cloned = runCommand(cloneCommand);
-if (!cloned) process.exit(-1);
+  const cloned = await runCommand(cloneCommand);
+  if (!cloned) process.exit(-1);
 
-console.log("Installing packages");
+  console.log("Installing packages");
 
-const installed = runCommand(installCommand);
-if (!installed) process.exit(-1);
+  const installed = await runCommand(installCommand);
+  if (!installed) process.exit(-1);
 
-console.log("Node api created.");
+  console.log("Node api created.");
+};
+
+runCommands();
