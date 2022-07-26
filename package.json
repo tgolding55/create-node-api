@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "A basic node api template.",
   "main": "start.js",
+  "bin": "./bin/createNodeApi.js",
+  "repository": "https://github.com/tgolding55/create-node-api.git",
   "scripts": {
     "start": "NODE_ENV='prod' node start.js",
-    "start:dev": "NODE_ENV='dev' nodemon start.js",
+    "start:dev": "NODE_ENV='dev' node mon start.js",
     "test": "mocha tests/**/*.test.js",
     "seed": "NODE_ENV='dev' node seedDB.js"
   },
