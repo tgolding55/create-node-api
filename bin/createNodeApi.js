@@ -1,10 +1,13 @@
 #!/usr/bin/env node
+const util = require("util");
 
-const { execSync } = require("child_process");
+const exec = util.promisify(require("child_process").exec);
 
-const runCommand = command => {
+const runCommand = async command => {
   try {
-    execSync(command, { stdio: "inherit" });
+    const { stdout, stderr } = await exec(command);
+    console.log(stdout);
+    console.log(stderr);
     return true;
   } catch (err) {
     console.error(err);
