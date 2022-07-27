@@ -10,7 +10,7 @@ This is a simple node api boilerplate, includes a user model with authorization 
 npx @tgolding55/create-node-api my-app
 ```
 
-Remember to change to update the package.json!
+Remember to update the package.json!
 Next, fill out the dev.env and test.env files with your environment variables.
 
 # To test run:
