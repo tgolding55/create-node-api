@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const util = require("util");
+fs = require("fs");
 
 const exec = util.promisify(require("child_process").exec);
 
@@ -32,8 +33,19 @@ const runCommands = async () => {
   const installed = await runCommand(installCommand);
   if (!installed) process.exit(-1);
 
+  console.log("Cleaning up");
   const cleanedUp = await runCommand(removeDirCommand);
   if (!cleanedUp) process.exit(-1);
+
+  const fileName = "package.json";
+  const file = JSON.parse(fs.readFileSync(fileName).toString());
+
+  file.name = repoName;
+  file.repository = "";
+  file.version = "1.0.0";
+  file.description = "";
+
+  fs.writeFileSync(fileName, JSON.stringify(file));
 
   console.log("Node api created.");
 };
