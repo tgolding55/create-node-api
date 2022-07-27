@@ -1,6 +1,6 @@
 {
   "name": "@tgolding55/create-node-api",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A basic node api template.",
   "main": "start.js",
   "bin": "./bin/createNodeApi.js",
