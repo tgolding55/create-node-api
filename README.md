@@ -7,7 +7,7 @@ This is a simple node api boilerplate, includes a user model with authorization 
 # To install run:
 
 ```
-npx @tgolding55/create-node-api
+npx @tgolding55/create-node-api my-app
 ```
 
 Next, fill out the dev.env and test.env files with your environment variables.
