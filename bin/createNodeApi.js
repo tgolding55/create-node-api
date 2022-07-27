@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 const util = require("util");
-fs = require("fs");
 
 const exec = util.promisify(require("child_process").exec);
 
@@ -27,16 +26,6 @@ const runCommands = async () => {
 
   const cloned = await runCommand(cloneCommand);
   if (!cloned) process.exit(-1);
-
-  const fileName = "package.json";
-  const file = JSON.parse(fs.readFileSync(fileName).toString());
-
-  file.name = repoName;
-  file.repository = "";
-  file.version = "1.0.0";
-  file.description = "";
-
-  fs.writeFileSync(fileName, JSON.stringify(file));
 
   console.log("Installing packages");
 
