@@ -7,7 +7,7 @@
   "repository": "https://github.com/tgolding55/create-node-api.git",
   "scripts": {
     "start": "NODE_ENV='prod' node start.js",
-    "start:dev": "NODE_ENV='dev' node mon start.js",
+    "start:dev": "NODE_ENV='dev' nodemon start.js",
     "test": "mocha tests/**/*.test.js",
     "seed": "NODE_ENV='dev' node seedDB.js"
   },
