@@ -1,9 +1,45 @@
-Create a .env file before prod
-Change all .env variables before use
+# Create-node-api
 
-To start in prod use npm start
-To start in dev use npm run start:dev
-To run tests use npm test
+This is a simple node api boilerplate, includes a user model with authorization middleware and routes.
 
-To seed in dev use npm seed
-To seed in prod manually run "NODE_ENV='prod' node seedDB.js", seeds/seedProd.js will be used.
+## Getting Started
+
+# To install run:
+
+```
+npx @tgolding55/create-node-api
+```
+
+Next, fill out the dev.env and test.env files with your environment variables.
+
+# To test run:
+
+```
+npm test
+```
+
+# To run in dev mode, run:
+
+```
+npm run start:dev
+```
+
+# To start in prod, you must first make a .env file based on the .env.example. Then you can use:
+
+```
+npm start
+```
+
+# Finally to seed your database you can use:
+
+When in dev (seeds/seedDev.js will be used)
+
+```
+npm run seed
+```
+
+When in prod (seeds/seedProd.js will be used)
+
+```
+NODE_ENV='prod' node seedDB.js
+```

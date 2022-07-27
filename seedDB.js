@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const db = require("./src/models/db");
 let seed;
 
 switch (process.env.NODE_ENV) {
@@ -15,14 +16,11 @@ switch (process.env.NODE_ENV) {
 require("dotenv").config({ path: envPath });
 
 const seedDB = async () => {
-  const { DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USERNAME } = process.env;
+  const { DB_HOST, DB_NAME, DB_PORT } = process.env;
 
   const mongoURI = `mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`;
 
-  await mongoose.connect(mongoURI, {
-    user: DB_USERNAME,
-    pass: DB_PASSWORD
-  });
+  await db.connect();
 
   const conn = mongoose.createConnection(mongoURI);
 
