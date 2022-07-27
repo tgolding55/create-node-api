@@ -79,4 +79,28 @@ describe("/users", () => {
       expect(_id).to.equal(user._id.toString());
     });
   });
+
+  describe("GET /validate/", () => {
+    let response, user;
+    const userData = { username: "username", password: "password" };
+
+    beforeEach(async () => {
+      user = await User.create(userData);
+      token = user.generateAuthToken();
+
+      response = await request(app)
+        .get("/v1/users/validate")
+        .set("Accept", "application/json")
+        .set("Content-Type", "application/json")
+        .set("Authorization", `Bearer ${token}`);
+    });
+
+    it("returns 200", () => {
+      expect(response.statusCode).to.be(200);
+    });
+
+    it("returns the user", () => {
+      expect(response.body.user._id.toString()).to.equal(user._id.toString());
+    });
+  });
 });
